@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 #Implementation of the ElGamal Cryptosystem
 #Author: Ryan Riddle (ryan.riddle@uky.edu)
 #Date of Completion: April 20, 2012
@@ -280,7 +282,7 @@ def decode(aiPlaintext, iNumBits):
         #7696128 - (111 * (2^(8*1))) = 7667712
         #m[2] = 7667712 / (2^(8*2)) = 117 = 'u'
                         
-        decodedText = bytearray(b for b in bytes_array).decode('utf-16')
+        decodedText = bytearray(b for b in bytes_array).decode('utf-8')
 
         return decodedText
                                 
@@ -298,7 +300,7 @@ def generate_keys(iNumBits=256, iConfidence=32):
         publicKey = PublicKey(p, g, h, iNumBits)
         privateKey = PrivateKey(p, g, x, iNumBits)
 
-        return {'privateKey': privateKey, 'publicKey': publicKey}
+        return {'privateKey': privateKey, 'publicKey': publicKey},p
 
         
 #encrypts a string sPlaintext using the public key k
